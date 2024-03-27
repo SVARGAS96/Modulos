@@ -1,10 +1,10 @@
 {{-- Ruta del layout --}}
 @extends('layouts.plantilla_home')
 {{-- Selecciona la seccion y se ingresa la informacion. --}}
-@section('title','Home Módulos')
+@section('title','Soporte4.0')
 @section('content')
-    <h1>HOME MÓDULOS SOPORTE4.0</h1>
+    <h1>CATEGORÍA DE PRODUCTOS</h1>
 @endsection
 @section('footer')
-    <h4>SOLUCIONES TECNÓLOGICAS</h4>
+    <h4>CATEGORÍA</h4>
 @endsection

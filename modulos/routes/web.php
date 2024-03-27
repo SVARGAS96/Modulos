@@ -4,10 +4,9 @@ que apunta a un controlador específico para manejar las solicitudes GET en la r
 #Esta línea importa la clase Route del framework Laravel. Route se utiliza para definir las rutas en una aplicación Laravel.
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\inventarioController\CategoriaControllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 #Aquí se importa el controlador TercerosController que está ubicado en el namespace App\Http\Controllers..
-use App\Http\Controllers\TercerosController;
-
 #Esta línea define una ruta GET en la raíz de la aplicación (/). 
 /* Cuando un usuario accede a la URL base de la aplicación, se enviará una solicitud a esta ruta. 
 El segundo argumento especifica el controlador que manejará la solicitud, en este caso, 
@@ -26,5 +25,15 @@ Route::controller(TercerosController::class)->group(function(){
     route::get('terceros/{terceros}','edit');//editar uno
     route::get('terceros/{terceros}','update');//actualizar uno
     route::get('terceros/{terceros}','destroy');//eliminar uno
+});
+
+Route::controller(CategoriaController::class)->group(function(){
+    Route::get('categoria','index'); // Muestra todo
+    Route::get('categoria/create','create'); // Crear
+    Route::post('categoria/store','store'); // Almacenar
+    Route::get('categoria/{categoria}','show'); // Mostrar uno
+    Route::get('categoria/{categoria}/edit','edit'); // Editar uno
+    Route::put('categoria/{categoria}','update'); // Actualizar uno
+    Route::delete('categoria/{categoria}','destroy'); // Eliminar uno
 });
 
