@@ -22,7 +22,7 @@ class TercerosController extends Controller
      */
     public function create()
     {
-        //
+        return view('terceros.create');//
     }
 
     /**
@@ -32,7 +32,7 @@ class TercerosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('terceros.store');//
     }
 
     /**
@@ -40,7 +40,7 @@ class TercerosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('terceros.show');//
     }
 
     /**
@@ -48,7 +48,7 @@ class TercerosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('terceros.edit');//
     }
 
     /**
@@ -56,7 +56,7 @@ class TercerosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return view('terceros.update');//
     }
 
     /**
@@ -64,6 +64,6 @@ class TercerosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return view('terceros.destroy');//
     }
 }
