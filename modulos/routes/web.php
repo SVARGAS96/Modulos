@@ -34,12 +34,12 @@ Route::controller(TipoIdController::class)->group(function(){
 });
 
 Route::controller(CategoriaController::class)->group(function(){
-    Route::get('categoria','index'); // Muestra todo
-    Route::get('categoria/create','create'); // Crear
-    Route::post('categoria/store','store'); // Almacenar
-    Route::get('categoria/{categoria}','show'); // Mostrar uno
-    Route::get('categoria/{categoria}/edit','edit'); // Editar uno
-    Route::put('categoria/{categoria}','update'); // Actualizar uno
-    Route::delete('categoria/{categoria}','destroy'); // Eliminar uno
+    Route::get('inventario/categoria','index'); // Muestra todo
+    Route::get('inventario/categoria/crear','create'); // Crear
+    Route::get('inventario/categoria/guardar','store'); // Almacenar
+    Route::get('inventario/categoria/mostrar/{categoria}','show'); // Mostrar uno
+    Route::get('inventario/categoria/editar/{categoria}','edit'); // Editar uno
+    Route::get('inventario/categoria/actualizar/{categoria}','update'); // Actualizar uno
+    Route::get('inventario/categoria/eliminar/{categoria}','destroy'); // Eliminar uno
 });
 
