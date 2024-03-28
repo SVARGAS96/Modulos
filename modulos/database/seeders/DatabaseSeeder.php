@@ -2,22 +2,27 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
+use App\Models\Categoria;
+class categoriaSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Categoria::create([
+            'nombre' => 'Accesorios',
+            'descripcion' => 'Candado con alarma',
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
         ]);
+
+        Categoria::create([
+            'nombre' => 'Repuestos',
+            'descripcion' => 'Cargador USB',
+
+        ]);
+
+        
     }
 }
