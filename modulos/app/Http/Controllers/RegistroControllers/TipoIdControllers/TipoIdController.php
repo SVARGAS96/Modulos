@@ -19,7 +19,7 @@ class TipoIdController extends Controller
      */
     public function create()
     {
-        //
+        return view('registro.TipoId.create');//
     }
 
     /**
@@ -27,7 +27,7 @@ class TipoIdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('registro.TipoId.store');//
     }
 
     /**
@@ -35,7 +35,7 @@ class TipoIdController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('registro.TipoId.show');//
     }
 
     /**
@@ -43,7 +43,7 @@ class TipoIdController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('registro.TipoId.edit'); //
     }
 
     /**
@@ -51,7 +51,7 @@ class TipoIdController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return view('registro.TipoId.update'); //
     }
 
     /**
@@ -59,6 +59,6 @@ class TipoIdController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return view('registro.TipoId.store');//
     }
 }

@@ -1,8 +1,8 @@
 @extends('layouts.plantilla_update')
-@section('title','Crear Tercero')
+@section('title','SOPORTE4.0')
 @section('content')
-    <h1>ACTUALIZAR TERCEROS</h1>
+    <h1>ACTUALIZAR TIPO IDENTIFICACIÓN</h1>
 @endsection
 @section('footer')
-  <h4>SOLUCIÓN DE TECNOLOGÍAS INFORMÁTICAS</h4>
+  <h4>SOLUCIONES TECNOLÓGICAS</h4>
 @endsection

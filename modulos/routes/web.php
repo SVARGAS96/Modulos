@@ -23,16 +23,17 @@ Route::get('/',HomeController::class);
 Se utiliza para registrar un controlador completo y 
 definir las rutas correspondientes para cada método del controlador. */ 
 
+#Rutas modulo Registro / TipoIdentificacion Santiago.
 Route::controller(TipoIdController::class)->group(function(){
     route::get('registro/TipoID','index');//index = recurso del controlador.-> Muestra todo
-    route::get('terceros/create','create');//create = recurso del controlador. -> Crear
-    route::get('terceros/store','store');//adicionar
-    route::get('terceros/show/{terceros}','show');//Show = buscar uno
-    route::get('terceros/edit/{terceros}','edit');//editar uno
-    route::get('terceros/update/{terceros}','update');//actualizar uno
-    route::get('terceros/destroy/{terceros}','destroy');//eliminar uno
+    route::get('registro/TipoID/create','create');//create = recurso del controlador. -> Crear
+    route::get('registro/TipoID/store','store');//adicionar POST
+    route::get('registro/TipoID/show/{registro}','show');//Show = buscar uno
+    route::get('registro/TipoID/edit/{registro}','edit');//editar uno
+    route::get('registro/TipoID/update/{registro}','update');//actualizar uno PUT
+    route::get('registro/TipoID/destroy/{registro}','destroy');//eliminar uno DELETE
 });
-
+#Rutas modulo Inventario / Categoria Erika.
 Route::controller(CategoriaController::class)->group(function(){
     Route::get('categoria','index'); // Muestra todo
     Route::get('categoria/create','create'); // Crear
