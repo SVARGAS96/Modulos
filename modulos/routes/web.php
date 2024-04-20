@@ -9,14 +9,20 @@ use Illuminate\Support\Facades\Route;
 #Aquí se importa el controlador TercerosController que está ubicado en el namespace App\Http\Controllers..
 #use App\Http\Controllers\TercerosController;
 use App\Http\Controllers\inventarioController\CategoriaControllers\CategoriaController;
+<<<<<<< HEAD
 use App\Http\Controllers\ProductoController;
+=======
+use App\Http\Controllers\InventarioControllers\HomeInventarioController;
+>>>>>>> 5a9e3a6881ee007ff5fe82f5bc416c530ef56367
 
 #Aquí se importa el controlador TercerosController que está ubicado en el namespace App\Http\Controllers..
 #Esta línea define una ruta GET en la raíz de la aplicación (/). 
+
 /* Cuando un usuario accede a la URL base de la aplicación, se enviará una solicitud a esta ruta. 
 El segundo argumento especifica el controlador que manejará la solicitud, en este caso, 
 TercerosController::class. Esto significa que cuando se accede a la ruta /, 
 la solicitud será manejada por el método index() del controlador TercerosController. */
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 #Rutas modulo Registro / TipoIdentificacion Santiago.
@@ -33,7 +39,18 @@ Route::resource('/registro/TipoID', TipoIdController::class)->names([
 
 
 #Rutas modulo Inventario / Categoria Erika.
-Route::controller(CategoriaController::class)->group(function(){
+Route::get('inventario/', [HomeInventarioController::class, 'index']);
+
+Route::resource('/inventario/categoria', CategoriaController::class)->names([
+    'index' => 'categoria.index',
+    'store' => 'categoria.store',
+    'show' => 'categoria.show',
+    'edit' => 'categoria.edit',
+    'update' => 'categoria.update',
+    'destroy' => 'categoria.destroy',   
+]);
+
+/* Route::controller(CategoriaController::class)->group(function(){
     Route::get('inventario/categoria','index'); // Muestra todo
     Route::get('inventario/categoria/crear','create'); // Crear
     Route::get('inventario/categoria/guardar','store'); // Almacenar
@@ -41,7 +58,7 @@ Route::controller(CategoriaController::class)->group(function(){
     Route::get('inventario/categoria/editar/{categoria}','edit'); // Editar uno
     Route::get('inventario/categoria/actualizar/{categoria}','update'); // Actualizar uno
     Route::get('inventario/categoria/eliminar/{categoria}','destroy'); // Eliminar uno
-});
+}); */
 
 Route::controller(ProductoController::class)->group(function(){
     Route::get('inventario/producto','index'); // Muestra todo
