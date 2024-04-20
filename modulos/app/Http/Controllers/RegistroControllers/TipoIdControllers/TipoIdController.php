@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\RegistroControllers\TipoIdControllers;
 use App\Http\Controllers\Controller;
+use App\Models\TipoId;
 use Illuminate\Http\Request;
 
 class TipoIdController extends Controller
@@ -11,8 +12,10 @@ class TipoIdController extends Controller
      */
     public function index()
     {
-        return view('registro.TipoID.index');//
+        $tipos_id = TipoId::all(); // Recupera todos los registros de la tabla TipoId
+        return view('registro.TipoID.index', ['tipos_id' => $tipos_id]); // Pasar los registros a la vista
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,38 +30,51 @@ class TipoIdController extends Controller
      */
     public function store(Request $request)
     {
-        return view('registro.TipoId.store');//
+        $tipo_id = new TipoID();
+        $tipo_id->Nombre = $request->input('Nombre');
+        $tipo_id->Descripcion = $request->input('Descripcion');
+    
+        $tipo_id->save();
+        return redirect()->route('tipoId.index');
     }
+
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        return view('registro.TipoId.show');//
+        $tipoId = TipoId::findOrFail($id); // Buscar el registro por su ID
+        return view('registro.TipoID.show', compact('tipoId')); // Pasar el registro a la vista
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        return view('registro.TipoId.edit'); //
+        $tipoId = TipoId::findOrFail($id); // Buscar el registro por su ID
+        return view('registro.TipoID.edit', compact('tipoId')); // Pasar el registro a la vista
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        return view('registro.TipoId.update'); //
+        $tipoId = TipoId::findOrFail($id); // Buscar el registro por su ID
+        $tipoId->update($request->all()); // Actualizar los datos del registro con los datos del formulario
+        return redirect()->route('tipoId.index'); // Redirigir al listado de registros
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(TipoId $tipoId)
     {
-        return view('registro.TipoId.store');//
+        $tipoId->delete();//
+        return redirect()->route('tipoId.index');
     }
 }
