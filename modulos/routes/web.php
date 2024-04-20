@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 #Aquí se importa el controlador TercerosController que está ubicado en el namespace App\Http\Controllers..
 #use App\Http\Controllers\TercerosController;
 use App\Http\Controllers\inventarioController\CategoriaControllers\CategoriaController;
+use App\Http\Controllers\ProductoController;
 
 #Aquí se importa el controlador TercerosController que está ubicado en el namespace App\Http\Controllers..
 #Esta línea define una ruta GET en la raíz de la aplicación (/). 
@@ -42,5 +43,14 @@ Route::controller(CategoriaController::class)->group(function(){
     Route::get('inventario/categoria/editar/{categoria}','edit'); // Editar uno
     Route::get('inventario/categoria/actualizar/{categoria}','update'); // Actualizar uno
     Route::get('inventario/categoria/eliminar/{categoria}','destroy'); // Eliminar uno
+});
+
+Route::controller(ProductoController::class)->group(function(){
+    Route::get('inventario/producto','index'); // Muestra todo
+    Route::get('inventario/producto/crear','create'); // Crea
+    Route::get('inventario/producto/guardar','store'); // Almacena
+    Route::get('inventario/producto/mostrar/{producto}','show'); // Muestra 1
+    Route::get('inventario/producto/editar/{producto}','edit'); // Editar uno
+    Route::get('inventario/producto/eliminar/{producto}','destroy'); // Eliminar uno
 });
 
