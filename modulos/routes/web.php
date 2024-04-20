@@ -2,10 +2,9 @@
 que apunta a un controlador específico para manejar las solicitudes GET en la raíz de la aplicación. -->
 <?php
 #Esta línea importa la clase Route del framework Laravel. Route se utiliza para definir las rutas en una aplicación Laravel.
-
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistroControllers\TipoIdControllers\TipoIdController;
-
+use App\Http\Controllers\RegistroControllers\HomeRegistroController;
 use Illuminate\Support\Facades\Route;
 #Aquí se importa el controlador TercerosController que está ubicado en el namespace App\Http\Controllers..
 #use App\Http\Controllers\TercerosController;
@@ -17,22 +16,21 @@ use App\Http\Controllers\inventarioController\CategoriaControllers\CategoriaCont
 El segundo argumento especifica el controlador que manejará la solicitud, en este caso, 
 TercerosController::class. Esto significa que cuando se accede a la ruta /, 
 la solicitud será manejada por el método index() del controlador TercerosController. */
-Route::get('/',HomeController::class);
-
-/* el método Route::controller() en Laravel. 
-Se utiliza para registrar un controlador completo y 
-definir las rutas correspondientes para cada método del controlador. */ 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 #Rutas modulo Registro / TipoIdentificacion Santiago.
-Route::controller(TipoIdController::class)->group(function(){
-    route::get('registro/TipoID','index');//index = recurso del controlador.-> Muestra todo
-    route::get('registro/TipoID/create','create');//create = recurso del controlador. -> Crear
-    route::get('registro/TipoID/store','store');//adicionar POST
-    route::get('registro/TipoID/show/{registro}','show');//Show = buscar uno
-    route::get('registro/TipoID/edit/{registro}','edit');//editar uno
-    route::get('registro/TipoID/update/{registro}','update');//actualizar uno PUT
-    route::get('registro/TipoID/destroy/{registro}','destroy');//eliminar uno DELETE
-});
+Route::get('registro/', [HomeRegistroController::class, 'index']);
+
+Route::resource('/registro/TipoID', TipoIdController::class)->names([
+    'index' => 'tipoId.index',
+    'store' => 'tipoId.store',
+    'show' => 'tipoId.show',
+    'edit' => 'tipoId.edit',
+    'update' => 'tipoId.update',
+    'destroy' => 'tipoId.destroy',   
+]);
+
+
 #Rutas modulo Inventario / Categoria Erika.
 Route::controller(CategoriaController::class)->group(function(){
     Route::get('inventario/categoria','index'); // Muestra todo
@@ -44,3 +42,6 @@ Route::controller(CategoriaController::class)->group(function(){
     Route::get('inventario/categoria/eliminar/{categoria}','destroy'); // Eliminar uno
 });
 
+/* el método Route::controller() en Laravel. 
+Se utiliza para registrar un controlador completo y 
+definir las rutas correspondientes para cada método del controlador. */  
