@@ -1,0 +1,90 @@
+.body{
+    background-color: #ededed;
+    margin: auto;
+}
+
+.nav{
+    background-color:cornflowerblue;
+}
+
+.main{
+    display: grid;
+    grid-template-rows: auto auto ;
+    justify-content: center; /* Centra horizontalmente */
+    padding-bottom: 10px;
+}
+
+.content {
+    padding-top: 15px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px;
+    grid-template-rows: 30px auto auto;
+    justify-content: center;
+    border: 1px solid black;
+    height: 435px;
+    
+}
+.container{
+    display: grid;
+    width: 600px;
+    grid-row: 2;
+    grid-column: 1;
+    height: 100px;
+}
+
+.btn-buscar {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.form{
+    background-color: aquamarine;
+}
+
+.footer{
+    text-align: center;
+}
+
+.table.table.table-tiposId{
+    border-collapse: collapse; /* Para fusionar los bordes de las celdas */
+    border: 1px solid #dddddd; /* Borde de la tabla */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: justify
+}
+thead{
+    background-color: aliceblue;
+}
+.table_encabezado{
+    background-color: cadetblue;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.col-12{
+    background-color: aliceblue;
+    width: 500px;
+    height: 200px;
+}
+.card-header{
+    text-align: center;
+}
+
+.form-create{
+    width: 400px;
+    height: 90px;
+}
+
+.card-body{
+    padding-left: 100px;
+    text-align: justify;
+}
+
+.btn-guardar{
+   
+}

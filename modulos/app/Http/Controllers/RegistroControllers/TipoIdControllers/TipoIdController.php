@@ -72,9 +72,16 @@ class TipoIdController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TipoId $tipoId)
+    public function destroy($id)
     {
-        $tipoId->delete();//
+        // Buscar la categoría por su ID
+        $tipoId = TipoId::findOrFail($id);
+        
+        // Eliminar el TipoId
+        $tipoId->delete();
+        
+        // Redirigir a la lista de categorías
         return redirect()->route('tipoId.index');
     }
+    
 }

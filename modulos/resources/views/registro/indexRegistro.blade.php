@@ -1,5 +1,5 @@
 {{-- Ruta del layout --}}
-@extends('layouts.plantilla_home')
+@extends('layouts.plantilla_create')
 {{-- Selecciona la seccion y se ingresa la informacion. --}}
 @section('title','Home Módulos')
 @section('content')

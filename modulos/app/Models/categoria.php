@@ -9,5 +9,5 @@ class categoria extends Model
 {
     protected $table = 'categorias'; // Aquí defines el nombre de la tabla
 
-    protected $fillable = ['Nombre', 'Descripcion'];
+    protected $fillable = ['Nombre', 'Descripción'];
 }
