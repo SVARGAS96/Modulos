@@ -13,6 +13,16 @@ use App\Http\Controllers\RegistroControllers\HomeRegistroController;
 
 use Illuminate\Support\Facades\Route;
 #Aquí se importa el controlador TercerosController que está ubicado en el namespace App\Http\Controllers..
+<<<<<<< HEAD
+=======
+#use App\Http\Controllers\TercerosController;
+use App\Http\Controllers\inventarioController\CategoriaControllers\CategoriaController;
+<<<<<<< HEAD
+use App\Http\Controllers\ProductoController;
+=======
+use App\Http\Controllers\InventarioControllers\HomeInventarioController;
+>>>>>>> 5a9e3a6881ee007ff5fe82f5bc416c530ef56367
+>>>>>>> dd63c52d12f9005b1643b1af38799bd0d8db9dae
 
 #Aquí se importa el controlador TercerosController que está ubicado en el namespace App\Http\Controllers..
 #Esta línea define una ruta GET en la raíz de la aplicación (/). 
@@ -58,6 +68,15 @@ Route::resource('/inventario/categoria', CategoriaController::class)->names([
     Route::get('inventario/categoria/actualizar/{categoria}','update'); // Actualizar uno
     Route::get('inventario/categoria/eliminar/{categoria}','destroy'); // Eliminar uno
 }); */
+
+Route::controller(ProductoController::class)->group(function(){
+    Route::get('inventario/producto','index'); // Muestra todo
+    Route::get('inventario/producto/crear','create'); // Crea
+    Route::get('inventario/producto/guardar','store'); // Almacena
+    Route::get('inventario/producto/mostrar/{producto}','show'); // Muestra 1
+    Route::get('inventario/producto/editar/{producto}','edit'); // Editar uno
+    Route::get('inventario/producto/eliminar/{producto}','destroy'); // Eliminar uno
+});
 
 /* el método Route::controller() en Laravel. 
 Se utiliza para registrar un controlador completo y 

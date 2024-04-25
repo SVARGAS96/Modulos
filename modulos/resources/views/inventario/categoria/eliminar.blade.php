@@ -16,3 +16,10 @@
 @section('footer')
     <h4>CATEGORÍA</h4>
 @endsection
+
+Route::controller(ProductoController::class)->group(function(){
+    route::get('productos','index');//index = recurso del controlador.-> Muestra todo
+    route::get('productos/create','create');//create = recurso del controlador. -> Crear muestr formulario
+    route::get('productos/show/{registro}','show');//Show = buscar uno
+    route::get('productos/edit/{registro}','edit');//editar uno muestra formulario    
+});

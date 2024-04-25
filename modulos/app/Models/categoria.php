@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class categoria extends Model
 {
+<<<<<<< HEAD
+    use HasFactory;
+    protected $table= 'categorias';
+=======
     protected $table = 'categorias'; // Aquí defines el nombre de la tabla
 
-    protected $fillable = ['Nombre', 'Descripción'];
+    protected $fillable = ['Nombre', 'Descripcion'];
 }
