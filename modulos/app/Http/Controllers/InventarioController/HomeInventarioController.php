@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\InventarioController;
+namespace App\Http\Controllers\InventarioControllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 
 class HomeInventarioController extends Controller
 {
@@ -10,4 +11,5 @@ class HomeInventarioController extends Controller
     {
         return view('inventario.indexInventario');//
     }
+    
 }

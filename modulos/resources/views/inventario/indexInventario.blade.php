@@ -5,7 +5,7 @@
 @section('content')
     <h1>INVENTARIOS</h1>
     <ul>
-        <li><a href="http://localhost/Modulos/modulos/public/inventario/categoria">Categoria</a></li>
+        <li><a href="">Categoria</a></li>
         <li><a href="">Producto</a></li>
  
     </ul>

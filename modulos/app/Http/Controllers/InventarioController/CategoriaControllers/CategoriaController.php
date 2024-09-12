@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\InventarioController\CategoriaControllers;
+namespace App\Http\Controllers\inventarioController\CategoriaControllers;
 use App\Http\Controllers\Controller;
 use App\Models\categoria;
 use Database\Seeders\categoriaSeeder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-
 
 class CategoriaController extends Controller
 {
@@ -35,7 +33,7 @@ class CategoriaController extends Controller
     {
         $categorias = new categoria();
         $categorias->Nombre = $request->input('Nombre');
-        $categorias->Descripción = $request->input('Descripcion');
+        $categorias->Descripcion = $request->input('Descripcion');
     
         $categorias->save();
         return redirect()->route('categoria.index');
@@ -48,7 +46,7 @@ class CategoriaController extends Controller
     public function show($id)
     {
         $categoria_id = categoria::findOrFail($id); // Buscar el registro por su ID
-        return view('inventario.categoria.mostrar', compact('categoria_id')); // Pasar el registro a la vista
+        return view('inventario.categoria.mostrar', compact('$categoria_id')); // Pasar el registro a la vista
     }
 
 
@@ -58,7 +56,7 @@ class CategoriaController extends Controller
     public function edit($id)
     {
         $categoria_id = categoria::findOrFail($id); // Buscar el registro por su ID
-        return view('inventario.categoria.editar', compact('categoria_id')); // Pasar el registro a la vista
+        return view('inventario.categoria.editar', compact('$categoria_id')); // Pasar el registro a la vista
     }
 
     /**
@@ -68,24 +66,16 @@ class CategoriaController extends Controller
     {
         $categoria_id = categoria::findOrFail($id); // Buscar el registro por su ID
         $categoria_id->update($request->all()); // Actualizar los datos del registro con los datos del formulario
-        return redirect()->route('categoria.index'); // Redirigir al listado de registros
+        return redirect()->route('$categoria_id'); // Redirigir al listado de registros
     }
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(categoria $categoria_id)
     {
-        // Buscar la categoría por su ID
-        $categoria = Categoria::findOrFail($id);
-        
-        // Eliminar la categoría
-        $categoria->delete();
-        
-        // Redirigir a la lista de categorías
-        return redirect()->route('categoria.index');
+        $categoria_id->delete();//
+        return redirect()->route('$categoria_id');
     }
-
-
 }

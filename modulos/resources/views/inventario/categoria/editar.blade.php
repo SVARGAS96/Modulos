@@ -2,16 +2,16 @@
 @section('title','SOPORTE4.0')
 @section('content')
     <h1>EDITAR TIPO IDENTIFICACIÓN</h1>
-    <form action="{{ route('categoria.update', $categoria_id->id) }}" method="POST">
+    <form action="{{ route('categoria.update', $categoria->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="col-12">
             <label for="name" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" name="Nombre" id="name" value="{{ $categoria_id->Nombre }}" required>
+            <input type="text" class="form-control" name="Nombre" id="name" value="{{ $categoria->Nombre }}" required>
         </div>
         <div class="col-12">
             <label for="descripcion" class="form-label">Descripción:</label>
-            <input type="text" class="form-control" name="Descripción" id="descripcion" value="{{ $categoria_id->Descripción }}" required>
+            <input type="text" class="form-control" name="Descripcion" id="descripcion" value="{{ $categoria->Descripcion }}" required>
         </div>
 
         <div class="mt-3">
