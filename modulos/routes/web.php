@@ -55,7 +55,7 @@ Route::resource('/inventario/categoria', CategoriaController::class)->names([
     Route::get('inventario/categoria/actualizar/{categoria}','update'); // Actualizar uno
     Route::get('inventario/categoria/eliminar/{categoria}','destroy'); // Eliminar uno
 }); */
-
+/*
 Route::controller(ProductoController::class)->group(function(){
     Route::get('inventario/producto','index'); // Muestra todo
     Route::get('inventario/producto/crear','create'); // Crea
